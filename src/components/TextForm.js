@@ -11,22 +11,27 @@ export default function TextForm(props) {
 
     const handleUpperCase = () => {
         setText(text.toUpperCase());
+        props.showAlert("Converted to Uppercase.", "success");
     }
 
     const handleLowerCase = () => {
         setText(text.toLowerCase());
+        props.showAlert("Converted to Lowercase.", "success");
     }
 
     const handleExtraSpaces = () => {
         setText(text.split(/[ ]+/).join(" "));
+        props.showAlert("Extra spaces has been removed.", "success");
     }
 
     const handleCopy = () => {
         navigator.clipboard.writeText(text);
+        props.showAlert("Copied to Clipboard.", "success");
     }
 
     const handleClear = () => {
         setText("");
+        props.showAlert("Text Cleared.", "success");
     }
 
     const wordCount = (text) => text === "" ? 0 : text.split(" ").length;
