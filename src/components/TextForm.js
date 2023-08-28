@@ -32,11 +32,11 @@ export default function TextForm(props) {
     const wordCount = (text) => text === "" ? 0 : text.split(" ").length;
 
     return (
-        <div className='container my-3'>
+        <div className='container my-3' style={{color: props.mode==='light'?"#042743":"white"}}>
             <div className="container">
                 <h2 className='my-3'>{props.heading}</h2>
                 <div className="mb-3">
-                    <textarea className="form-control" placeholder='Enter text here' value={text} onChange={handleOnChange} id="myBox" rows="5"></textarea>
+                    <textarea style={{backgroundColor: props.mode==='dark'?'#212529':'white', color: props.mode==='dark'?'white':'#042743'}} className={`form-control ${props.mode==='dark'?'placeholder-color':''}`} placeholder='Enter text here' value={text} onChange={handleOnChange} id="myBox" rows="5"></textarea>
                 </div>
                 <button className="btn btn-primary mx-1" onClick={handleUpperCase}>Uppercase</button>
                 <button className="btn btn-primary mx-1" onClick={handleLowerCase}>Lowercase</button>
